@@ -1,0 +1,30 @@
+<project name="BTools" default="" basedir=".">
+	<description>
+		Plugin_ build file
+	</description>
+	<property name="src" location="src" />
+	<property name="build" location="bin" />
+	<property name="dist"  location="dist" />
+	<property name="pluginsDir"  location="$basedir/../../ImageJ/plugins/BLab/"/>
+	<property name="user.name" value="Luis Veliz" />
+	
+	<target name="main" depends="compress" description="Main target">
+		<echo>
+			aaaaaaaaaaaaaaaa!
+		</echo>
+	</target>
+ 	
+ 	<target name="compress" depends="" description="generate the distribution">
+ 		<echo>
+ 				Building the .jar file.
+		</echo>
+ 		<jar jarfile="BTools.jar">
+ 			<fileset dir="." includes="plugins.config" />
+			<fileset dir="${build}" includes="**/*.*" />
+ 			<manifest>
+ 				<attribute name="Built-By" value="${user.name}"/>
+ 			</manifest>
+ 		</jar>
+    	<copy file="BTools.jar" toDir="${pluginsDir}" />
+  	</target>
+</project>
